@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     @Autowired IPersonaService ipersonaservice;
     
-    @GetMapping("/personas/obtener") //de la DB al Front
+    @GetMapping("/personas/traer") //de la DB al Front
     public List<Persona> getPersona() {
         return ipersonaservice.getPersona();
     }
@@ -45,8 +45,8 @@ public class PersonaController {
         return "La personsa fue eliminada correctamente.";
     }
     
-    //URI/PUERTO/personas/editar/4/nombre&apellido&img
-    @PutMapping("/personas/editar{id}") //editar una persona de la DB
+    //URI:PUERTO/personas/editar/4/nombre&apellido&img
+    @PutMapping("/personas/editar/{id}") //editar una persona de la DB
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("nombre") String newName,
                                @RequestParam("apellido") String newSurename,
